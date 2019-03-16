@@ -1,0 +1,52 @@
+<scroll-view  
+    scroll-top="{{scroll_Top}}"
+    style="height: {{windowHeight}}px; width: {{windowWidth}}px;" 
+    scroll-y="true" bindscrolltoupper="pullUpLoad" bindscrolltolower="pullDown">
+<view class="body">
+    <view class="div con">
+        <block wx:key="item" wx:for="{{groups}}">
+            <view class="div mt_order" id="groups">
+                <view class="div groups_line"></view>
+                <view class="div mt_g"  data-url="./group" data-id="{{item.group_order_id}}" bindtap="toDetail">
+                <view class="div mt_g_img">  
+                    <view class="a" href="group.html?id=2071596">
+                    <image class="img" src="{{item.order_goods.image_url}}" /></view> </view> 
+                    <view class="div mt_g_info">
+                        <view class="p mt_g_name">{{item.order_goods.goods_name}}</view> 
+                        <view class="p mt_g_price"> 成团价： <view class="span"> <view class="b"> <view class="small">￥</view>{{item.order_amount}}</view>/件</view><view class="i"></view> </view> </view> </view>
+                <view class="div mt_status">
+                    <view class="span mt_status_txt">{{tuan_status[item.status].desc}}</view>
+                    <view class="mt_status_lk1 " href="order.html?id=9272403" data-url="../orders/order" data-id="{{item.order_id}}" bindtap="toDetail"> 查看订单详情 </view>
+                    <view class="mt_status_lk1 marg_right" href="group.html?id=2071596" data-url="./group" data-id="{{item.group_order_id}}" bindtap="toDetail"> 查看团详情 </view> 
+                </view>
+            </view>
+        </block>
+        
+        <view class="div mt_nogroups" wx:if="{{!groups && no_data == 1}}">
+            <view class="h4">您还没有参过任何团，快去逛逛吧</view>
+        </view>
+
+        <block wx:else>
+            <view id="load_more" class="div pullUp_hide" hidden="{{no_data == 1}}">
+                <view class="div center"><view class="span">
+                <image class="img_rotate" src="https://91364949.qcloud.la/images/pull_loading.png"/></view>
+                <view class="span orders_text">{{load_text}}</view></view>
+            </view>
+            <view class="div posi_abso" ms-class="up:!isloading" hidden="{{no_data != 1}}">
+                <view class="div center " id="center_pullup">
+                    <!--<view class="span orders_text" id="noOrders">{{no_tuan_orders}}</view>-->
+                </view>
+            </view>
+        </block>
+        
+    </view>
+    <view class="i service explain_icon_right" style="display: block;top: 154px;" onclick="common.showService()">
+         <contact-button 
+            type="default-light" 
+                size="27" >
+            </contact-button>  
+    </view>
+    <view class="div" style="height:58px;visibility:hidden "></view>
+</view>
+<include src="../common/footer.wxml"/>
+</scroll-view>

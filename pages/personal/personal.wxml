@@ -1,0 +1,90 @@
+<block wx:if="{{!hasUserInfo && canIUse}}">
+    <view class="bg_black">
+    <block>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="https://weixin.tiandunwang.com/images/avatar_4_64.png" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+        <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击登录 </button>
+
+    </view>
+</block>
+<block wx:else>
+  <view class="container">
+
+    <view class="main-view">
+        <view class="my">
+            <view class="my_head">
+                <view class="my_head_pic">
+                    <image id="uinLogo" class="my_head_img img" src="{{userInfo.avatarUrl}}"></image>
+                </view>
+				
+				<view class="my_head_info">
+					<view class="h4 my_head_name" id='nickname'>{{userInfo.nickName}}</view>
+				</view>
+			</view>
+        </view>
+		
+		<!-- start -->
+		<view class="div">
+			<view class="div nav">
+				<view class="ul nav_list">
+					<view class="li nav_item nav_order" ptag="12478.1.1">
+						<view class="a" ptag="12478.1.1" href="orders.html">
+							<view class="div nav_item_hd">我的订单</view>
+						</view>
+						<view class="div nav_item_bd">
+							<navigator class="a" ptag="12478.16.1" redirect url="../orders/orders"><view  class="span nav_item_txt">全部</view></navigator>
+							<navigator class="a" ptag="12478.17.1" redirect url="../orders/orders?type=0">
+								<view class="span nav_item_txt">待付款<view class="i nav_item_num" id="need_pay_count" style="display:none">0</view></view>
+							</navigator>
+							<navigator class="a" ptag="12478.18.1" redirect url="../orders/orders?type=1">
+								<view class="span nav_item_txt">待收货<view class="nav_item_num" id="need_recv_count" style="display:none">0</view></view>
+							</navigator>
+						</view>
+					</view>
+					<view class="li nav_item nav_cheap">
+						<view class="div nav_item_hd"><navigator class="a"  url="../../pages/groups/groups" redirect href="groups.html" hover-class="none"> 我的拼团 </navigator></view>
+					</view>
+					<view class="li nav_item nav_cart" ptag="12478.10.1">
+						<view class="div nav_item_hd"><navigator url="../../pages/addresses/addresses" class="a" href="addresses.html" hover-class="none">我的地址 </navigator></view>
+					</view>
+					<!--<view class="li nav_item nav_cart" ptag="12478.10.1">
+						<view class="div nav_item_hd_coupons"><view class="coupons_a a" href="coupons.html" hover-class="none">我的优惠券 </view></view>
+					</view>-->
+					<!--<view class="li nav_item nav_cart" ptag="12478.10.1">
+						<view class="div nav_item_hd_coupons_sale">
+							<view class="coupons_a div" href="post_sale.html" hover-class="none">售后服务 </view>
+							<contact-button type="default-light" size="30" style="display:block;line-height:4;z-index:9999999999;width:369px;height:40px;margin-left:6px;background-color:red;margin-top:-43px;opacity:-0.5;"> </contact-button>  
+						</view>
+					</view>-->
+					<view class="li nav_item nav_cart" ptag="12478.10.1">
+						<view class="div nav_item_hd_promotion"><view class="a" href="#" hover-class="none">降价提醒</view>
+							<view class="span rf">
+								<view class="div onoffswitch">
+									<switch bindchange="switch2Change"/>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="li nav_item nav-marging-vertical">
+						<view class="div nav_item_refresh" bindtap="refreshLogin"><view>授权头像</view></view>
+					</view>
+					
+					<!--<view class="li nav_item nav-marging-vertical">
+						<view class="div nav_item_refresh" bindtap="clearCache"><view>清除缓存</view></view>
+					</view>-->
+				</view>
+			</view>
+		</view>	
+		<!-- end -->
+    </view>
+</view>
+<!--<view class="div" style="font-size:13px;color:gray;vertical-align:middle;text-align:center;line-height:23px;}">点击右上角，显示在聊天顶部</view>
+<view class="div" style="font-size:13px;color:gray;vertical-align:middle;text-align:center;line-height:23px;}">再次使用： 发现-小程序-搜索“拼123”</view>
+<view class="div"  style="font-weight:bold;font-size:13px;color:#666;vertical-align:middle;text-align:center;line-height:30px;}">查看这张名片二维码，同步至手机</view>-->
+<include src="../common/footer.wxml"/>
+</block>
+
+
+
+

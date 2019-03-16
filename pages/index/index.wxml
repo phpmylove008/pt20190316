@@ -1,0 +1,124 @@
+<view id="main">
+    <view class="container" wx:if="{{banners}}">
+        <view class="main-view" id="co-focus" >
+            <!--<view class="index_loctaion">
+                <view class="location" bindtap="location">
+                    <view class='i'></view>
+                    <view class='span'>{{address_info}}</view>
+                </view>
+                <view class='location-arrow'>
+                </view>
+            </view>
+            <view class='header' style="margin-bottom: 9.6px;"></view>
+            -->
+            <view class="div tuan" id="tuan">
+                 <view id="channelSlider" class="ch-container div">                   
+                    <!--<view class="ch-left span"></view>
+                    <view class="ch-right span"></view>-->
+                    <scroll-view class="ch-content recommend_scroll_x_box" scroll-x="true" scroll-left="{{nav_scroll_left}}">
+                    <!--<view class="ch-content ul">-->
+                          <view class="{{ current_index == undefine || current_index == -1 ?  'cur-ch-tab' : 'ch-tab'}} span" data-index="-1" data-cate_id="0" bindtap="channelRendered">首页</view>
+                        <block  wx:key="item" wx:for="{{cates}}">
+                            <view class="ch-tab-item li">
+                                <view class="{{current_index == index ?  'cur-ch-tab' : 'ch-tab'}} span" data-index="{{index}}" data-cate_id="{{item.cate_id}}" bindtap="channelRendered">{{item.cate_name}}</view>
+                            </view>
+                        </block>
+                    <!--</view>-->
+                    </scroll-view>
+                </view>
+
+                  <scroll-view  
+    scroll-top="{{scroll_Top}}"
+    bindscroll="scroll" style="height: {{windowHeight}}px; width: {{windowWidth}}px;" 
+    scroll-y="true" bindscrolltoupper="pullUpLoad" bindscrolltolower="pullDown">
+
+                 <swiper indicator-dots="{{indicatorDots}}"
+                    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="width:{{banner_img.imageWidth}}px;height:{{banner_img.imageheight}}px;{{ current_index == undefine || current_index == -1 ? '' : 'display:none;'}}" id="slider" circular="true">
+                        <block wx:key="item" wx:for="{{banners}}">
+                            <swiper-item>
+                                <navigator url="{{item.banner_type && item.target_url && item.target_url != '#' ? item.target_url : ''}}">
+                                    <image src="{{item.image_url}}" class="slide-image"  bindload="cusImageLoad" style="width:{{banner_img.imageWidth}}px;height:{{banner_img.imageheight}}px" data-id="banner_img" />
+                                </navigator>
+                            </swiper-item>
+                        </block>
+                    </swiper>
+
+                    <view class="div clear-both"></view>
+
+                    <view class="for-margin-top"></view>           
+
+                    <block wx:key="item" wx:for="{{goods}}" wx:if="{{current_index == undefine || current_index == -1}}">
+                        <view style="" class="goods_list tuan-new div">
+                            <view class="tuan_g div">
+                                <view class="i"></view>
+                                <navigator hover-class="none" url="../goods/goods?goods_id={{item.goods_id}}" redirect>
+                                    <view class="tuan_g_img div">
+                                        <image class="loadThumb img" src="{{item.image_url}}" data-id="goods_img"></image> 
+                                    </view>
+                                    
+                                    <view class="tuan_goods_info div">
+                                        <view class="p tuan_goods_name">{{item.goods_name}}</view>
+                                            <view class="p tuan_goods_cx">
+                                                <view class="span"></view>
+                                            </view>
+                                    </view>
+                                
+                                    <view class="tuan_goods_core div">
+                                        <view class="tuan_goods_btn div">
+                                            <view class="span">去开团</view>
+                                        </view>
+
+                                        <view class="tuan_goods_price">
+                                            <view class="red span">
+                                                <view class="small">￥</view>
+                                                <span>{{item.group_price}} </span>
+                                            </view>
+                                            <view class="span group-desc">  {{item.group_number}}人团.单买价{{item.alone_price}}元</view>
+                                        </view>
+                                    </view>
+                                </navigator>
+                            </view>
+                        </view> 
+                    </block>
+
+                    <block wx:if="{{current_index != undefine && current_index != -1}}">
+                        <view id="recommendA" class="div recommendA" hidden="{{goods == '' || goods == undefined}}">
+                            <view class="div recommend" style="display: block;">
+                                <view class="ul">
+                                    <block  wx:key="item" wx:for="{{goods}}">
+                                        <view class="li"  bindtap="bindRedirect" data-url="../goods/goods?goods_id={{item.goods_id}}">
+                                            <view style="{{(index + 1) % 2 == 0 ? 'padding: 10px 0px 20px 0px;' : 'padding: 10px 0px 20px 0px;'}}">
+                                            <view class="div img">
+                                                <image src="{{item.image_url}}" class="img" data-id="two_goods_img" style="width:{{windowWidth / 2 - 10}}px;height:{{windowWidth / 2}}px;" /></view>
+                                            <view class="div desc">
+                                                <view class="div text" style="padding:10px 0.9px 0 1px;">{{item.goods_name}}</view>
+                                                <view class="div detail">
+                                                    <view class="span price">
+                                                    <view class="small">￥</view>{{item.group_price}}</view> 
+                                                    <view class="span spec">
+                                                    </view></view>
+                                            </view>
+
+                                            </view>
+                                        </view>
+                                    </block>
+                                    <view class="div" style="clear:both"></view>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+
+                <view class="div posi_abso" ms-class="up:isloading" hidden="{{no_data == 1}}">
+                    <view class="div center " id="center_pullup">
+                        <view class="span">
+                        <image class="img_rotate" height="80" src="https://91364949.qcloud.la/images/pull_loading.png" width="80"/></view>
+                        <view class="span orders_text">数据正在加载中</view>
+                    </view>
+                </view>
+                </scroll-view>
+              </view>
+        </view>
+    </view>
+</view>
+<view class="i" id="go-top" style="{{goTopId}}" bindtap="goTop"></view>
+<include src="../common/footer.wxml"/>

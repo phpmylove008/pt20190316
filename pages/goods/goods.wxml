@@ -1,0 +1,116 @@
+<include src="../common/co_maks.wxml"/>
+<view class="container">
+    <view class="main-view">
+        <!--图片详情图片轮播-->
+        <swiper indicator-color="#ffffff" indicator-active-color="#000000" style='height:{{imageheight}}px;background-color:#fff;' indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" wx:if="{{gallery}}" circular="true">
+        <block wx:key="item" wx:for="{{gallery}}">
+            <swiper-item>
+            <image src="{{item.img_url}}" class="slide-image" bindload="cusImageLoad" style="width:{{imageWidth}}px;height:{{imageheight}}px" />
+            </swiper-item>
+        </block>
+        </swiper>
+
+        <view class="goods-info goods-white div">
+            <view class="goods-name div">{{goods.goods_name}}</view>
+             <view class="p tuan_goods_cx">
+                <view class="span"></view>
+                <!--<block wx:for="{{goods.key_words.normal_keywords}}" wx:for-index="index_nk" wx:for-item="item_nk">
+                    <view class="span"  wx:if="{{index_nk == 0}}" >{{item_nk}}</view>
+                    <view class="span" wx:else ><view class="span">·</view>{{item_nk}}</view>
+                </block>-->
+            </view> 
+
+            <view class="goods_price div">
+                <view class="red span">
+                    <view class="red-padding span">￥</view>
+                    {{goods.group_price}}
+                </view>
+                <!--<view class="price-spec span">
+                    <view class="span">/</view>
+                    4个 
+                </view>-->
+                <view class="grey span">
+                    <view class="grey-padding span">
+                        <view class="small">￥</view>
+                    </view>
+                      {{goods.market_price}}
+                </view>
+                <view class="market-price span">（市场价）</view>
+            </view>  
+
+            <view class="goods-sold div">
+                累计销量：{{goods.sell_count < 10000 ? goods.sell_count : "10000+"}}件
+            </view>
+            
+            <view class="rule-intro div">*开团并邀请{{goods.group_number - 1}}人参团，人数不足自动退款，详见<view class="span">拼团玩法</view></view>
+            
+            <!--<view class="quickgroup div">
+                <view class="nearby-group goods-white" id="goodsquick">
+                    <view class="nearby-title">以下小伙伴快要成团了，快来助攻！</view>
+
+                    <view class="nearby-group-detail div">
+                        <view class="nearby-g-img"><image src="http://wx.qlogo.cn/mmopen/uUXu1icFQEI3eBHpf6fE7uicnBxIzf0B6qnhVwAnwN8zaLRrphRWdEECe2mibWOWEiciaJuoGJcPmQ33ricUHcrkBmWUp3sBibic8iaKf/0" class="nearby-g-owner-img img"></image></view>
+                        <view class="nearby-g-wrapper">
+                            <view class="nearby-g-info">
+                                <view class="nearby-g-owner">小彪彪</view>
+                                <view class="nearby-g-left-user-num">还差1人成团</view>
+                                <view class="nearby-g-address"></view>
+                                <view class="nearby-g-left-time">剩余 23:42:14</view>
+                            </view>
+                        </view>
+
+                        <view class="join-group-btn">
+                            <view class="span">去参团</view>
+                            <image src="https://91364949.qcloud.la/images/detail.png" class="img"></image>
+                        </view> 
+                        <view class="nearby-line"></view>
+                    </view>
+                </view>
+            </view>-->
+
+            <view class="image-text goods-white">
+                <view class="text-title">图文详情</view>
+                <import src="../../wxParse/wxParse.wxml"/>
+                <!--<template is="wxParse" data="{{wxParseData}}"/>-->
+                <template is="wxParse" data="{{wxParseData:goods_desc.nodes}}"/>
+                <!--<view class="img-info">
+                    <view class="ul">
+                        <block wx:for="{{goods.goods_desc}}">
+                            <view class="li">
+                                <image src="{{item}}" class="img" mode='scaleToFill'></image>
+                            </view>
+                        </block>
+                    </view>
+                </view>-->
+            </view>
+
+            <!--底部购买菜单-->
+            <view class="footer footer-special">
+                <view class="nav">
+                    <view class="goods-footer ul">
+                        <view class="li home"><navigator url="../../pages/index/index" hover-class="a-hover" class='a' redirect ><view class="i fb goods-home"></view>首页</navigator></view>
+                        <!--单独购买-->
+                        <view class="li one-bug bug-common" wx:if="{{goods.sell_type == 0 || goods.sell_type == 2}}">
+                            <navigator url="../../pages/orders/checkout?goods_id={{goods.goods_id}}&sell_type=2" hover-class="none" class="white">
+                                <view class="div bug-price"><view class="span small">￥</view>{{goods.alone_price}}</view>
+                                <view class="div bug-type">单独购</view>
+                            </navigator>
+                        </view>
+
+                        <!--多人购买-->
+                        <view class="li more-bug bug-common" wx:if="{{goods.sell_type == 0 || goods.sell_type == 1}}">
+                            <navigator url="../../pages/orders/checkout?goods_id={{goods.goods_id}}&sell_type=1" hover-class="none" class="white">
+                                <view class="div bug-price"><view class="span small">￥</view>{{goods.group_price}}</view>
+                                <view class="div bug-type">{{goods.group_number}}人团</view>
+                             </navigator>
+                        </view>
+
+
+                    </view>  
+                </view>
+            </view>
+
+        </view>
+    </view>
+</view>

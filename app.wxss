@@ -1,0 +1,511 @@
+.a {display: inline;}
+.div {display: block;}
+.footer {display: block;}
+.header {display: block;}
+.small {display:inline;}
+.i {display:inline;}
+.span {display:inline;}
+.ul {display: block;}
+.li {display: inline;}
+.b {display: inline}
+.strong {display: inline}
+
+.lili{
+    display: block;
+}
+.footer {
+    z-index: 9999!important;
+}
+.body {
+	margin: 0 auto;
+    min-width: 320px;
+    max-width: 640px;
+    height: 100%;
+    background: #fff;
+    font-size: 12px;
+    font-family: Helvetica,STHeiti STXihei,Microsoft JhengHei,Microsoft YaHei,Arial;
+    line-height: 1.5;
+    color: #666;
+    -webkit-text-size-adjust: 100%!important;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #f1f1f2;
+}
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.footer {
+    width: 100%;
+    max-width: 640px;
+    height: 49px;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translate3d(-50%,0,0);
+    transform: translate3d(-50%,0,0);
+    overflow: hidden;
+    background-color: #fff;
+    border-top: #eceded;
+    box-shadow: 0 0 4px rgba(0,0,0,.2);
+}
+
+.ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.footer .li {
+    float: left;
+    width: 25%;
+    text-align: center;
+    margin-top: 10px;
+    height: 100%
+}
+
+.footer .a,.footer .a-focus,.footer .a-hover {
+    color: #777;
+    font-size: 10px
+}
+
+.footer .a.active {
+    color: #1aad19;
+}
+
+.footer .nav-controller {
+    position: relative;
+    height: 100%;
+    display: block;
+}
+
+.fb-group {
+    background-image: url(https://weixin.tiandunwang.com/images/table_bar@3x_4cda43.png);
+    background-position: 0 -42px
+}
+
+.fb-group,.fb-home {
+    background-repeat: no-repeat;
+    background-size: 24px auto;
+    height: 24px;
+    margin: auto;
+    width: 24px;
+    margin-top: -3px
+}
+
+.fb-home {
+    background-image: url(https://weixin.tiandunwang.com/images/table_bar@3x_4cda43.png);
+    background-position: 0 0
+}
+
+.active .fb-home {
+    background-position: 0 -213px
+}
+
+.active .fb-group {
+    background-position: 0 -255px
+}
+
+.fb-list {
+    background-image: url(https://weixin.tiandunwang.com/images/table_bar@3x_4cda43.png);
+    background-repeat: no-repeat;
+    background-size: 24px auto;
+    content: "";
+    height: 24px;
+    margin: auto;
+    width: 24px;
+    margin-top: -3px;
+    background-position: 0 -126px
+}
+
+.active .fb-list {
+    background-position: 0 -339px
+}
+
+.fb-user {
+    background-image: url(https://weixin.tiandunwang.com/images/table_bar@3x_4cda43.png);
+    background-repeat: no-repeat;
+    background-size: 24px auto;
+    height: 24px;
+    margin: auto;
+    width: 24px;
+    margin-top: -3px;
+    background-position: 0 -169px
+}
+
+.active .fb-user {
+    background-position: 0 -383px
+}
+
+.active3 .fb-user {
+    background-position: 0 -383px!important
+}
+
+.active0 .fb-home {
+    background-position: 0 -213px!important
+}
+
+.active1 .fb-group {
+    background-position: 0 -255px!important
+}
+
+.active2 .fb-list {
+    background-position: 0 -339px!important
+}
+
+.br:before {content: "\A"}
+
+
+/*error start*/
+.winpop-mask {
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .6;
+}
+
+.winpop-box, .winpop-mask {
+    display: none;
+    position: fixed;
+}
+
+.winpop-box {
+    left: 50%;
+    top: 50%;
+    z-index: 999999;
+    -webkit-transform: translate3d(-50%,-50%,0);
+    webkit-transform: translate3d(-50%,-50%,0);
+    width: 80%;
+    height: 30%;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.winpop-box, .winpop-mask {
+    display: none;
+    position: fixed;
+}
+
+.winpop-box .winpop-main {
+    height: 75%;
+    overflow: hidden;
+    text-wrap: normal;
+    line-height: 24px;
+    color: #666;
+    padding: auto;
+    text-align: center;
+    vertical-align: center;
+    font-size: 18px;
+    position: relative;
+}
+
+.winpop-box .winpop-main .co-main-words {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    width: 90%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.winpop-box .winpop-btns {
+    text-align: center;
+    height: 25%;
+    z-index: 999999999;
+    border-top: 1px solid #999;
+}
+
+.winpop-box .winpop-btns {
+    text-align: center;
+    height: 25%;
+    z-index: 999999999;
+    border-top: 1px solid #999;
+}
+
+.winpop-box .pop-btn {
+    width: 80%;
+    height: 35px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 0 solid #1aad19;
+    font-family: Microsoft Yahei;
+    color: #1aad19;
+    font-size: 16px;
+}
+
+button::after {
+    border: none;
+}
+/*error end*/
+
+
+.winpop-box .pop-btn2 {
+    width: 50%;
+    height: 100%;
+    background-color: transparent;
+    border: 0 solid #1aad19;
+    font-family: Microsoft Yahei;
+    color: #1aad19;
+    font-size: 16px;
+    position: relative;
+    display: inline-block;
+    border-radius: 0!important;
+    border-right: 1px solid #aaa;
+    border-radius: 0;
+    z-index: 999999999;
+}
+
+.service {
+    background: url(https://weixin.tiandunwang.com/images/service_5ca802.png) no-repeat;
+    background-size: contain;
+    top: 250px;
+    width: 56px;
+    height: 56px;
+}
+
+.explain_icon_right {
+    right: -50px;
+    -webkit-animation: shake 1s ease-in .3s forwards;
+    animation: shake 1s ease-in .3s forwards;
+}
+
+.explain_icon, .explain_icon_right {
+    position: fixed;
+    /*top: 160px;
+    width: 15%;
+    height: 15%;*/
+    z-index: 10;
+}
+
+@keyframes shake {
+    0% {
+        right: -50px
+    }
+
+    30%,to {
+        right: 20px
+    }
+
+    40%,60%,80% {
+        -webkit-transform: rotate(-10deg);
+        transform: rotate(-10deg)
+    }
+
+    50%,70%,90% {
+        -webkit-transform: rotate(10deg);
+        transform: rotate(10deg)
+    }
+}
+
+
+@-webkit-keyframes loading {
+    0% {
+        -webkit-transform: rotate(0)
+    }
+
+    to {
+        -webkit-transform: rotate(1turn)
+    }
+}
+
+.orders_text {
+    line-height: 45px;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.center {
+    width: 170px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 12px;
+}
+
+.img_rotate {
+    width: 30px;
+    height: 30px;
+    margin-top: 7px;
+    margin-right: 5px;
+    -webkit-animation: loading 1s linear 0s infinite;
+}
+
+.up, .wrap_position {
+    background-color: #f1f1f1;
+}
+
+.wrap_position {
+    position: relative;
+    height: 50px;
+    text-align: center;
+}
+
+contact-button {
+    display:block;
+    line-height:4;
+    z-index:9999999999;
+    width:40px;
+    height:40px;
+    margin-left:9px;
+    background-color:#1AAD19;
+    margin-top:7px;
+    opacity:-0.5;
+}
+
+.td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+.dialog_content {
+    background-color: #fff;
+    border-radius: 6px;
+    z-index: 9999;
+    position: fixed;
+    width: 90%;
+    height: 77%;
+    left: 50%;
+    top: 50%;
+    max-width: 620px;
+    -webkit-transform: translate(-50%,-47%);
+    transform: translate(-50%,-47%);
+}
+
+.express_header {
+    color: #111;
+    font-weight: 700;
+    display: inline-block;
+    font-size: 20px;
+    margin: 10px 0 0 20px;
+}
+
+.right_pos {
+    float: right;
+    margin-right: -13px;
+    margin-top: -13px;
+    width: 30px;
+    height: 30px;
+    display: block;
+    text-align: center;
+    border-radius: 100%;
+    background-color: #1AAD19;
+}
+
+.cancel_icon {
+    width: 48px;
+    height:48px;
+    display:inline;
+    text-align: center;
+    color: #fff;
+}
+
+.express_main {
+    margin: 20px auto 0;
+    width: 95%;
+    height: 76%;
+    overflow: scroll;
+}
+
+.center {
+    width: 170px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.dialog_back {
+    position: fixed;
+    z-index: 9997;
+    max-width: 640px;
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    opacity: .8;
+}
+
+
+.shipper {
+    color: #000;
+    font-size: 13px;
+    margin-left: 22px;
+}
+
+.tracking_number {
+    margin-left: 10px;
+}
+
+.express_main {
+    margin: 20px auto 0;
+    width: 95%;
+    height: 76%;
+    overflow: scroll;
+}
+
+.express_main {
+    margin: 20px auto 0;
+    width: 95%;
+    height: 76%;
+    overflow: scroll;
+}
+
+.express_ui {
+    font-size: 14px;
+}
+
+.express_ui li {
+    list-style-type: none;
+}
+
+.red_color {
+    color: #1AAD19;
+}
+
+.table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.exp_middle {
+    padding-right: 5px;
+    vertical-align: middle;
+    height: 100%;
+    width: 25%;
+    text-align: center;
+}
+
+.exp_circle {
+    margin-right: 5px;
+}
+
+.exp_detail {
+    width: 75%;
+}
+
+.one_expre {
+    margin: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.center_middle {
+    text-align: center;
+    vertical-align:middle;
+}
+
+.express_loading {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    width: 32px;
+    height: 32px;   
+}

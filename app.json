@@ -1,0 +1,31 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/groups/groups",
+    "pages/orders/orders",
+    "pages/orders/checkout",
+    "pages/personal/personal",
+    "pages/goods/goods",
+    "pages/addresses/addresses",
+    "pages/addresses/address",
+    "pages/orders/order",
+    "pages/groups/group"
+  ],
+  "window":{
+    "navigationBarBackgroundColor": "white",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "white",
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "微团购"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+ "permission": {
+  "scope.userLocation": {
+    "desc": "请点确定按钮，否则无获取您的位置"
+  }
+  },
+  "debug" : false
+}
